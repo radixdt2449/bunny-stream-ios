@@ -3,7 +3,7 @@ import Foundation
 struct VideoPlayerConfig {
   var vastTagUrl: String? = .none
   var showHeatmap: Bool = false
-  var controls: [Control] = Control.allCases
+  var controls: [Control] = Control.allCases.filter { $0 != .fullScreen }
   
   var hasAds: Bool {
     vastTagUrl != nil
@@ -27,7 +27,7 @@ extension VideoPlayerConfig {
       }
     }
     
-    self.controls = parsedControls
+    self.controls = parsedControls.filter { $0 != .fullScreen }
     print("[VideoPlayerConfig] Parsed controls: \(self.controls.map { $0.rawValue })")
   }
 }
