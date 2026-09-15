@@ -173,6 +173,7 @@ public struct BunnyStreamPlayer: View {
         errorView(for: error)
       }
     }
+    .background(Color.clear)
     .onAppear {
       isViewActive = true
     }
