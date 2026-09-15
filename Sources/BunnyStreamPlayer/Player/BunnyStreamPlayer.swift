@@ -156,7 +156,9 @@ public struct BunnyStreamPlayer: View {
       switch loadingState {
       case .loading:
         ProgressView()
+          .tint(.white)
           .frame(maxWidth: .infinity, maxHeight: .infinity)
+          .background(Color.clear)
       case .loaded(let mediaPlayer, let video, let heatmap):
         BunnyStreamPlayerContainerView(player: mediaPlayer, video: video, heatmap: heatmap)
           .environment(\.videoPlayerTheme, theme)
